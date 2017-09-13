@@ -39,10 +39,12 @@ class Deck(object):
         for card in self.cards:
             total.append(card.__str__())
         # shows up in whatever order the cards are in
-        return "\n".join(total)  # returns a multi-line string listing each card
+        # returns a multi-line string listing each card
+        return "\n".join(total)
 
     def pop_card(self, i=-1):
-        return self.cards.pop(i)  # this card is no longer in the deck -- taken off
+        # this card is no longer in the deck -- taken off
+        return self.cards.pop(i)
 
     def shuffle(self):
         random.shuffle(self.cards)
@@ -50,8 +52,10 @@ class Deck(object):
     def replace_card(self, card):
         card_strs = []  # forming an empty list
         for c in self.cards:  # each card in self.cards (the initial list)
-            card_strs.append(c.__str__())  # appends the string that represents that card to the empty list
-        if card.__str__() not in card_strs:  # if the string representing this card is not in the list already
+            # appends the string that represents that card to the empty list
+            card_strs.append(c.__str__())
+        # if the string representing this card is not in the list already
+        if card.__str__() not in card_strs:
             self.cards.append(card)  # append it to the list
 
     def sort_cards(self):
@@ -69,9 +73,10 @@ class Deck(object):
 
 
 # A silly function, but it does kind of work to play a game.
-# Because it's written in a silly way, there are a bunch of edge cases of sorts.
+# Because it's written in a silly way, there are a bunch of edge cases of sorts
 def play_war_game(testing=False):
-    # Call this with testing = True and it won't print out all the game mechanics, which makes it easier to see tests.
+    # Call this with testing = True and it won't print out all the game
+    #   mechanics, which makes it easier to see tests.
     player1 = Deck()
     player2 = Deck()
 
@@ -109,7 +114,9 @@ def play_war_game(testing=False):
 
 
 # Very silly. Grabbing the functionality from the helper functions file here.
-def show_song(inp="Winner"):  # default winner ... but also could be something else if it works correctly, which it does not (put in description and remove this clarity)
+# default winner ... but also could be something else if it works correctly,
+#   which it does not (put in description and remove this clarity)
+def show_song(inp="Winner"):
     songs_resp = helper_functions.get_and_cache_songs(
                     random.choice(["win", "winner", "hurrah", "hooray"]))
     song_objs = [helper_functions.Song(s) for s in songs_resp["results"]]
@@ -132,8 +139,12 @@ if __name__ == "__main__":
         s.open_url_for_track()
 
 # NOTE: if you see a message like so, running this on a Mac computer:
-# 0:94: execution error: "https://itunes.apple.com/us/album/bears-adventure/id495954957?i=495955054&uo=4" doesn’t understand the “open location” message. (-1708)
-# That's an Apple-related error but will not cause you a problem. Don't worry about it.
+# 0:94: execution error:
+#   "https://itunes.apple.com/us/album/
+#        bears-adventure/id495954957?i=495955054&uo=4"
+#    doesn’t understand the “open location” message. (-1708)
+# That's an Apple-related error but will not cause you a problem.
+#    Don't worry about it.
 
 
 ########### DO NOT CHANGE CODE ABOVE THIS LINE ###############
